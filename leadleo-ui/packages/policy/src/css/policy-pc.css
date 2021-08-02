@@ -1,0 +1,86 @@
+.table-wrap {
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+}
+.table-wrap .user-tip {
+  position: absolute;
+  width: 407px;
+  top: 118px;
+  left: 235px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px 0;
+  background-color: rgba(240, 240, 240, 1);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.table-wrap .user-tip .text {
+  font-size: 1.25rem;
+  color: #333;
+}
+.table-wrap .user-tip button {
+  padding: 6px 18px;
+  margin-top: 24px;
+  background-color: #e8392a;
+  color: #fff;
+}
+.table-wrap.card {
+  background-color: rgb(222, 222, 222, 0.2);
+}
+.table-wrap .table {
+  width: 100%;
+  overflow: auto;
+}
+.table-wrap table,
+.details-overlay table {
+  width: 100% !important;
+  border-collapse: collapse;
+  border: 1px solid #9e9e9e;
+  background-color: #fff;
+  animation: table-fade-in 0.6s;
+}
+.flext-start {
+  align-items: flex-start;
+  overflow: scroll;
+}
+.details-overlay .table {
+  padding-top: 0 !important;
+  flex-shrink: 0;
+}
+.details-overlay table {
+  transform: scale(0, 0);
+}
+.table-wrap table tr td {
+  padding: 6px 10px !important;
+}
+.details-overlay table tr td {
+  padding: 12px 20px !important;
+}
+.details-overlay table {
+  width: 900px !important;
+  transform: scale(0, 0);
+}
+.table-wrap table tr th,
+.details-overlay table tr th {
+  background-color: #e8392a;
+  color: #fff;
+  height: auto;
+  padding: 10px 20px;
+  min-width: 50px;
+}
+.table-wrap table tr td,
+.details-overlay table tr td {
+  text-align: left;
+  padding: 0 15px;
+  color: #666;
+  border: 1px solid #ccc;
+}
+.details-overlay table + table {
+  margin-top: 20px !important;
+}

@@ -1,0 +1,12 @@
+.flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.one-ellipsis {
+  /* 单行溢出隐藏 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
