@@ -1,18 +1,45 @@
+import Taro from '@tarojs/taro'
 
-export function ajax(url, method = 'GET') {
+interface Response {
+  code: number,
+  msg?: string
+}
+
+export interface HttpResponse extends Response {
+  data?: object | string
+}
+
+const Request = (
+  method:
+    | 'GET'
+    | 'POST'
+    | 'PUT'
+    | 'DELETE'
+    | 'CONNECT'
+    | 'HEAD'
+    | 'OPTIONS'
+    | 'TRACE',
+  url: string,
+  data?: string | object,
+  header?: { 'Content-Type': 'application/x-www-form-urlencoded' }
+): Promise<HttpResponse> => {
   return new Promise((resolve, reject) => {
-    let header = {
-      'content-type': 'application/json',
-      Authorization: 'Bearer ',
-      'request-platform': 'LEADLEO_MP'
-    }
-    wx.request({
-      url,
+    Taro.request({
       method,
+      url,
+      data,
       header,
-      complete: (res) => {
-        resolve(res.data)
+      success: (res: Taro.request.SuccessCallbackResult) => {
+        resolve(res.data as HttpResponse)
+      },
+      fail: (err: Taro.General.CallbackResult) => {
+        const resp: HttpResponse = { code: -1, msg: err.errMsg }
+        reject(resp)
       },
     })
   })
 }
+
+const Get = (url: string, data?: string | object) => Request('GET', url, data)
+
+export { Get }

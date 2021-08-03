@@ -1,9 +1,27 @@
 <template>
-  <sizepro :sizepro="sizeproDetails"></sizepro>
+  <details-layout>
+    <template #details>
+      <news :paragraphs="article.paragraphs"></news>
+    </template>
+  </details-layout>
 </template>
-<script setup lang="ts">
 
-import Sizepro from '../../components/sizepro/index.vue'
+<script lang="ts" setup>
+import { reactive } from 'vue'
 
-const sizeproDetails = {"industry":["金属及材料/其他"],"industryId":[[632,660]],"barType":0,"isDeleted":false,"title":"中国能源消耗与建筑能源消耗，2014-2018年","description":"中国能源消耗与建筑能源消耗，2014-2018年","authority":0,"status":2,"source":"fsTEAM软件采编，沙利文数据中心编制","sourceUrl":"","products":[{"industryId":[[632,660]],"yAxis":0,"unit":100000000,"unitName":"吨标准煤","kind":1,"series":[{"size":42.6,"year":2014,"predictive":false,"_id":"5df98f9496afd36286a580c4"},{"size":43,"year":2015,"predictive":false,"_id":"5df98f9496afd36286a580c3"},{"size":43.6,"year":2016,"predictive":false,"_id":"5df98f9496afd36286a580c2"},{"size":44.9,"year":2017,"predictive":false,"_id":"5df98f9496afd36286a580c1"},{"size":46.4,"year":2018,"predictive":false,"_id":"5df98f9496afd36286a580c0"}],"authority":0,"industry":["金属及材料/其他"],"_id":"5df98f9496afd36286a580bf","productName":"能源消耗总量"},{"industryId":[[632,660]],"yAxis":0,"unit":100000000,"unitName":"吨标准煤","kind":1,"series":[{"size":7.5,"year":2014,"predictive":false,"_id":"5df98f9496afd36286a580be"},{"size":7.7,"year":2015,"predictive":false,"_id":"5df98f9496afd36286a580bd"},{"size":9,"year":2016,"predictive":false,"_id":"5df98f9496afd36286a580bc"},{"size":10.5,"year":2017,"predictive":false,"_id":"5df98f9496afd36286a580bb"},{"size":13,"year":2018,"predictive":false,"_id":"5df98f9496afd36286a580ba"}],"authority":0,"industry":["金属及材料/其他"],"_id":"5df98f9496afd36286a580b9","productName":"建筑能源消耗量"},{"industryId":[[632,660]],"yAxis":1,"unit":1,"unitName":"%","kind":2,"series":[{"size":17.7,"year":2014,"predictive":false,"_id":"5df98f9496afd36286a580b8"},{"size":17.9,"year":2015,"predictive":false,"_id":"5df98f9496afd36286a580b7"},{"size":20.6,"year":2016,"predictive":false,"_id":"5df98f9496afd36286a580b6"},{"size":23.4,"year":2017,"predictive":false,"_id":"5df98f9496afd36286a580b5"},{"size":27.9,"year":2018,"predictive":false,"_id":"5df98f9496afd36286a580b4"}],"authority":0,"industry":["金属及材料/其他"],"_id":"5df98f9496afd36286a580b3","productName":"占比"}],"createdBy":"Bb1ZTUgeiPGrFNIbbdzyRvgiEiE","updatedBy":"Bb1ZTUgeiPGrFNIbbdzyRvgiEiE","createdByName":"周天恩","updatedByName":"周天恩","updatedAt":"2020-10-27T02:43:36.897Z","createdAt":"2019-12-18T02:31:48.505Z","SHA1":"9808e86c42319c9e814b998b74bc77cdc3c50087","__v":0,"id":"5df98f9496afd36286a580b2","available":true,"url":"2020/10/27/pgTxm9755sNJvpDd2qyjVP.jpg","relatedReports":[{"briefId":"5cbd4c54e95dad4bc7e738d1","briefType":1,"free":false}],"pageView":47}
+import DetailsLayout from '../../layouts/mobile/index.vue'
+import { News } from 'leadleo-ui'
+import 'leadleo-ui/lib/styles/news/news-mobile.css'
+
+import { Get } from '../../utils/core'
+
+const article = reactive({})
+
+Get('http://test.vestleader.com:81/article/details?id=60d4aae4b5090b1ed0dacb53').then(res => {
+  console.log(res)
+  Object.assign(article, res.data)
+})
 </script>
+
+<style>
+</style>

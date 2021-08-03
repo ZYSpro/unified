@@ -13,8 +13,9 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 
-import DetailsLayout from '@/layouts/details/index.vue'
+import DetailsLayout from '@/layouts/pc/details/index.vue'
 import { News } from 'leadleo-ui'
+import 'leadleo-ui/lib/styles/news/news-pc.css'
 
 const store = useStore()
 

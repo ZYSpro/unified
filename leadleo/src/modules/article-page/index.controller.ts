@@ -5,12 +5,32 @@ import { render } from 'ssr-core-vue3'
 
 import { ArticleService } from './index.service'
 
-@Controller('/article')
+@Controller('/')
 export class AppController {
   constructor(private readonly articleService: ArticleService) {}
 
-  @Get('/details')
+  @Get('/article/details')
   async articleDetails(@Req() req: Request, @Res() res: Response): Promise<void> {
+    try {
+      const ctx = {
+        request: req,
+        response: res,
+        articleService: this.articleService,
+        query: req.query
+      }
+      const stream = await render<Readable>(ctx, { stream: true })
+      stream.pipe(res, { end: false })
+      stream.on('end', () => {
+        res.end()
+      })
+    } catch (error) {
+      console.log(error)
+      res.status(500).send(error)
+    }
+  }
+
+  @Get('/mobile/article/details')
+  async mArticleDetails(@Req() req: Request, @Res() res: Response): Promise<void> {
     try {
       const ctx = {
         request: req,

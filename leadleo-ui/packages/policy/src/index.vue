@@ -15,6 +15,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style src="./css/policy-base.css"></style>
-<style src="./css/policy-pc.css"></style>

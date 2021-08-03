@@ -1,16 +1,5 @@
 <template>
-  <sizepro :sizepro="sizeproDetails"></sizepro>
+  <div>111</div>
 </template>
-<script setup lang="ts">
-import { computed } from 'vue'
-import { useStore } from 'vuex'
-
-import Sizepro from '@/components/sizepro/index.vue'
-
-const store = useStore()
-
-const sizeproDetails = computed(() => {
-  return store.state.detailStore.sizepro
-})
-</script>
+<script setup lang="ts"></script>
 <style></style>

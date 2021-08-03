@@ -13,7 +13,7 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 
-import DetailsLayout from '@/layouts/details/index.vue'
+import DetailsLayout from '@/layouts/pc/details/index.vue'
 import { Policy } from 'leadleo-ui'
 const store = useStore()
 

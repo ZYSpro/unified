@@ -14,6 +14,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<!-- <style src="./css/article-base.css"></style>
-<style src="./css/article-pc.css"></style> -->
