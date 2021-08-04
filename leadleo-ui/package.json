@@ -10,6 +10,9 @@
   "keywords": [],
   "author": "leadleo",
   "license": "ISC",
+  "peerDependencies": {
+    "vue": "3.1.x"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
@@ -34,6 +37,18 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "@vuedx/typescript-plugin-vue": "^0.7.4",
+    "eslint": "^7.32.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.15.1",
+    "prettier": "^2.3.2"
+  },
+  "files": [
+    "lib",
+    "packages"
+  ],
   "typings": "lib/index.d.ts"
 }
